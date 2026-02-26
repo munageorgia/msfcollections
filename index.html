@@ -239,9 +239,26 @@
           <select id="readyToPay" required>
             <option value="">Select an option</option>
             <option value="Yes">Yes, In Sha Allah</option>
-            <option value="No">No, Require time till january 10th</option>
+            <option value="No">No, will pay monthly</option>
           </select>
         </div>
+    
+        <div class="form-group">
+        <label class="form-label">Paid Via / Will Pay By</label>
+        <select id="paidVia" required>
+          <option value="">Select payment method</option>
+          <option value="Online: https://masjidsalmanalfarsi.org">Website: masjidsalmanalfarsi.org</option>
+          <option value="Zelle: munacentergeorgia@gmail.com">Zelle: munacentergeorgia@gmail.com</option>
+          <option value="PayPal: munacentergeorgia@gmail.com">PayPal: munacentergeorgia@gmail.com</option>
+          <option value="Masjid KIOSK and Donation Box">Masjid KIOSK and Donation Box</option>
+          <option value="Check: Masjid Salman Al-Farsi, 2187 Fellowship Rd, Tucker, GA 30084">Check: Masjid Salman Al-Farsi</option>
+        </select>
+        </div>
+
+      <div class="form-group">
+        <label class="form-label">Confirmed To</label>
+        <input type="text" id="confirmedTo" placeholder="Enter name of the person confirmed to">
+      </div>
 
         <button type="submit">Submit Payment Info</button>
       </form>
@@ -348,6 +365,8 @@
         phoneNumber: document.getElementById('phoneNumber').value,
         amount: document.getElementById('amount').value,
         readyToPay: document.getElementById('readyToPay').value,
+        paidVia: document.getElementById('paidVia').value,          // NEW
+        confirmedTo: document.getElementById('confirmedTo').value,
         timestamp: new Date().toLocaleString()
       };
 
@@ -511,6 +530,8 @@
             <div class="respondent-details">
               <p style="margin: 5px 0;"><strong>Phone:</strong> ${person.phoneNumber}</p>
               <p style="margin: 5px 0;"><strong>Ready:</strong> ${person.readyToPay}</p>
+              <p style="margin: 5px 0;"><strong>Paid Via:</strong> ${person.paidVia}</p>            <!-- NEW -->
+              <p style="margin: 5px 0;"><strong>Confirmed To:</strong> ${person.confirmedTo}</p>   <!-- NEW -->
               <p style="margin: 5px 0; font-size: 12px; color: #999;"><strong>Time:</strong> ${formattedDate}</p>
             </div>
           </div>
